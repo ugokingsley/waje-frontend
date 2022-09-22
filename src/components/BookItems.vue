@@ -52,7 +52,7 @@
         methods: {
             async getData() {
                 try {
-                    const response = await axios.get('http://localhost:5000/api/books');
+                    const response = await axios.get('https://wajesmart.herokuapp.com/api/books');
                     this.books = response.data; 
                     console.log(this.books);
                 } catch (error) {
@@ -62,7 +62,7 @@
 
             async submitForm() {
               try {
-                const response = await axios.post('http://localhost:5000/api/books', {
+                const response = await axios.post('https://wajesmart.herokuapp.com/api/books', {
                     name: this.name,
                     isbn: this.isbn,
                     author: this.author,
@@ -79,7 +79,7 @@
 
             async updateBook(book){
                 try{
-                const response = await axios.put('http://localhost:5000/api/books/${book.id}', {
+                const response = await axios.put('http://wajesmart.herokuapp.com/api/books/${book.id}', {
                         name: book.name,
                         isbn: this.isbn,
                         author: this.author,
