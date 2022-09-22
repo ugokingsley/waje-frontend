@@ -1,18 +1,24 @@
 <template>
-    <div class="books_container">
-        <div class="books_content">
+    <div class="container">
             <h1>Books</h1>
-            <h1>Tasks</h1>
-            <ul class="tasks_list">
-                <li v-for="book in books" :key="book.id">
-                    <h2>{{ book.name }}</h2>
-                    <p>{{ book.isbn }}</p>
-                    <p>{{ book.author }}</p>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Book Name</th>
+                      <th scope="col">ISBN</th>
+                      <th scope="col">Author</th>
+                    </tr>
+                </thead>
+                  <tbody>
+                    <tr v-for="book in books" :key="book.id">
+                      <td>{{ book.name }}</td>
+                      <td>{{ book.isbn }}</td>
+                      <td>{{ book.author }}</td>
+                      <td><button class="btn btn-primary btn-small" @click="updateBook(book)">Edit</button></td>
+                    </tr>
+                  </tbody>
+            </table>
         
-                    <button @click="updateBook(book)">Edit</button>
-                </li>
-            </ul>
-        </div>
         <div class="add_book">
           <form v-on:submit.prevent="submitForm">
             <div class="form-group">
@@ -33,12 +39,13 @@
             </div>
           </form>
         </div>
-
     </div>
 </template>
 
 <script>
-    import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap"
+import axios from "axios";
 
     export default {
         data() {
@@ -102,3 +109,6 @@
         }
     }
 </script>
+<style scoped>
+  
+</style>
